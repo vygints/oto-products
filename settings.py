@@ -1,5 +1,6 @@
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'DELETE']
+SERVER_NAME = None
 MONGO_PORT = 8888
 DOMAIN = {
     'product': {
