@@ -1,0 +1,12 @@
+version: '2'
+services:
+  oto-products:
+    build: .
+    ports:
+      - 5000
+    links:
+     - mongo
+  mongo:
+    image: mongo
+    ports:
+      - 27017
