@@ -15,7 +15,7 @@ node('slave1'){
   def APP_URL=''
   stage ('deploy-to-testing'){
         sh "sed -i -- \'s/BUILD_NUMBER/${env.BUILD_NUMBER}/g\' ${svcName}-dep.yml"
-		    sh "kubectl create namespace ${nsName}"
+        sh "kubectl create namespace ${nsName}"
         sh "kubectl apply -f mongodep.yml --validate=false -n ${nsName}"
         sh "kubectl apply -f ${svcName}-dep.yml --validate=false -n ${nsName}"
         //get app url
@@ -30,7 +30,7 @@ node('slave1'){
         echo "url is ${APP_URL}"
      }
     stage ('component-test'){
-       withEnv(["APP_URL=${APP_URL}:8080"]) {
+       withEnv(["APP_URL=${APP_URL}"]) {
 	sh "tests/ct/run.sh"
        }
     }
