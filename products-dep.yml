@@ -28,6 +28,6 @@ spec:
     spec:
       containers:
       - name: products
-        image: otomato/oto-produtcs:6
+        image: otomato/oto-products:BUILD_NUMBER
         ports:
         - containerPort: 5000
