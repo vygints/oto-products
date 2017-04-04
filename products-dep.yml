@@ -31,3 +31,9 @@ spec:
         image: otomato/oto-products:BUILD_NUMBER
         ports:
         - containerPort: 5000
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
